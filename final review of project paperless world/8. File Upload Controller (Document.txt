@@ -1,0 +1,23 @@
+//8. File Upload Controller (Document Management)
+package com.paperlessworld.controller;
+
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+
+@Controller
+public class DocumentController {
+
+    @PostMapping("/upload")
+    public String uploadFile(@RequestParam("file") MultipartFile file, Model model) {
+        // Add your file saving logic here (e.g., save to disk or cloud storage)
+        model.addAttribute("message", "File uploaded successfully!");
+        return "upload";  // This refers to upload.html
+    }
+
+    @GetMapping("/upload")
+    public String showUploadForm() {
+        return "upload";
+    }
+}
